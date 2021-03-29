@@ -1,5 +1,6 @@
 package com.jandadav.hydrobot2;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.statemachine.ExtendedState;
 import org.springframework.statemachine.StateContext;
@@ -14,6 +15,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
+@Disabled
 public class StateMachineTest {
 
     static enum States {
@@ -22,10 +24,6 @@ public class StateMachineTest {
 
     static enum Events {
         POT_FULL, POT_EMPTY, TIME_TO_WATER
-    }
-
-    class Model{
-        int waterLevel = 0;
     }
 
     class MonitoringAction implements Action {
