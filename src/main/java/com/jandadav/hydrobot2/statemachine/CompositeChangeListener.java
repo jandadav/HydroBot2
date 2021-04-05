@@ -23,6 +23,8 @@ public class CompositeChangeListener implements ExtendedState.ExtendedStateChang
 
     @Override
     public void changed(Object key, Object value) {
-        listeners.forEach(l -> l.changed(key, value));
+        if (key instanceof String) {
+            listeners.forEach(l -> l.changed(((String) key), value));
+        }
     }
 }

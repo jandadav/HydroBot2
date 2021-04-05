@@ -1,9 +1,6 @@
 package com.jandadav.hydrobot2.statemachine;
 
-public class ChangeListener {
+public interface ChangeListener {
 
-    public void changed(Object key, Object value) {
-
-    }
-
+    void changed(String key, Object value);
 }
