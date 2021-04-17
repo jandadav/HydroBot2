@@ -19,18 +19,18 @@ class NumberInRangeListenerTest {
 
     @Test
     void reactsOnlyOnInterestingAttributesChanges() {
-        NumberInRangeListener underTest = new NumberInRangeListener("MyAttribute", machine, 0, 5, StateMachineFactory.Events.POT_FULL);
+        NumberInRangeListener underTest = new NumberInRangeListener("MyAttribute", machine, 0, 5, Events.POT_FULL);
 
         underTest.changed("AnotherAttribute", "value");
-        verify(machine, times(0)).sendEvent(StateMachineFactory.Events.POT_FULL);
+        verify(machine, times(0)).sendEvent(Events.POT_FULL);
         underTest.changed("MyAttribute", "value");
-        verify(machine, times(1)).sendEvent(StateMachineFactory.Events.POT_FULL);
+        verify(machine, times(1)).sendEvent(Events.POT_FULL);
     }
 
     @Test
     void boundsHaveToBeOrdered() {
-        assertThrows(IllegalArgumentException.class, ()-> new NumberInRangeListener("MyAttribute", machine, 5, 0, StateMachineFactory.Events.POT_FULL));
-        assertDoesNotThrow(()-> new NumberInRangeListener("MyAttribute", machine, 0, 5, StateMachineFactory.Events.POT_FULL));
+        assertThrows(IllegalArgumentException.class, ()-> new NumberInRangeListener("MyAttribute", machine, 5, 0, Events.POT_FULL));
+        assertDoesNotThrow(()-> new NumberInRangeListener("MyAttribute", machine, 0, 5, Events.POT_FULL));
 
     }
 }

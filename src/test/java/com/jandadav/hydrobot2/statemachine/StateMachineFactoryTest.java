@@ -1,13 +1,11 @@
 package com.jandadav.hydrobot2.statemachine;
 
-import com.jandadav.hydrobot2.StateMachineTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.statemachine.StateMachine;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.*;
-import static com.jandadav.hydrobot2.statemachine.StateMachineFactory.*;
 
 class StateMachineFactoryTest {
 
