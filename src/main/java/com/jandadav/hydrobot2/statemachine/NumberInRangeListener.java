@@ -11,10 +11,10 @@ public class NumberInRangeListener implements ChangeListener {
     private StateMachine machine;
     private double lowerBound;
     private double upperBound;
-    private StateMachineFactory.Events outOfBoundsEvent;
+    private Events outOfBoundsEvent;
 
     //maybe relax to E extends Object instead of StateMachineFactory.Events
-    public NumberInRangeListener(String myAttribute, StateMachine machine, double lowerBound, double upperBound, StateMachineFactory.Events outOfBoundsEvent) {
+    public NumberInRangeListener(String myAttribute, StateMachine machine, double lowerBound, double upperBound, Events outOfBoundsEvent) {
         if (upperBound < lowerBound) {
             throw new IllegalArgumentException("Upper bound has to be higher than lower bound");
         }

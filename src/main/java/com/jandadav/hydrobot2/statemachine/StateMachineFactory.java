@@ -9,14 +9,6 @@ import java.util.EnumSet;
 @Slf4j
 public class StateMachineFactory {
 
-    static enum States {
-        FILL, DRAIN, STANDBY
-    }
-
-    static enum Events {
-        POT_FULL, POT_EMPTY, TIME_TO_WATER
-    }
-
     public static StateMachine<States, Events> buildMachine(String machineId) {
 
         try {

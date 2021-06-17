@@ -25,21 +25,21 @@ class NumberInRangeListenerTest {
 
     @Test
     void reactsOnlyOnInterestingAttributesChanges() {
-        NumberInRangeListener underTest = new NumberInRangeListener("testAttr", machine, 0, 5, StateMachineFactory.Events.POT_FULL);
+        NumberInRangeListener underTest = new NumberInRangeListener("testAttr", machine, 0, 5, Events.POT_FULL);
 
         underTest.changed("AnotherAttribute", "value");
-        verify(machine, never()).sendEvent(StateMachineFactory.Events.POT_FULL);
+        verify(machine, never()).sendEvent(Events.POT_FULL);
 
         underTest.changed("testAttr", 3.0d);
-        verify(machine, never()).sendEvent(StateMachineFactory.Events.POT_FULL);
+        verify(machine, never()).sendEvent(Events.POT_FULL);
         underTest.changed("testAttr", 7.0d);
-        verify(machine, atLeastOnce()).sendEvent(StateMachineFactory.Events.POT_FULL);
+        verify(machine, atLeastOnce()).sendEvent(Events.POT_FULL);
     }
 
     @Test
     void boundsHaveToBeOrdered() {
-        assertThrows(IllegalArgumentException.class, () -> new NumberInRangeListener("testAttr", machine, 5, 0, StateMachineFactory.Events.POT_FULL));
-        assertDoesNotThrow(() -> new NumberInRangeListener("testAttr", machine, 0, 5, StateMachineFactory.Events.POT_FULL));
+        assertThrows(IllegalArgumentException.class, () -> new NumberInRangeListener("testAttr", machine, 5, 0, Events.POT_FULL));
+        assertDoesNotThrow(() -> new NumberInRangeListener("testAttr", machine, 0, 5, Events.POT_FULL));
     }
 
     @Test
