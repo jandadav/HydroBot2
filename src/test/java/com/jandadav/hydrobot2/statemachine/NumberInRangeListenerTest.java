@@ -2,7 +2,6 @@ package com.jandadav.hydrobot2.statemachine;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.statemachine.ExtendedState;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.support.DefaultExtendedState;
 
@@ -25,7 +24,7 @@ class NumberInRangeListenerTest {
 
     @Test
     void reactsOnlyOnInterestingAttributesChanges() {
-        NumberInRangeListener underTest = new NumberInRangeListener("testAttr", machine, 0, 5, Events.POT_FULL);
+        NumericAttributeChangeListener underTest = new NumberInRangeListener("testAttr", machine, 0, 5, Events.POT_FULL);
 
         underTest.changed("AnotherAttribute", "value");
         verify(machine, never()).sendEvent(Events.POT_FULL);
